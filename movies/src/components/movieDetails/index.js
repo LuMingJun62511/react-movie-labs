@@ -57,6 +57,24 @@ const MovieDetails = ( props) => {
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
+
+
+      {/* 要做的国家列表，他和上面的流派列表很像，我大概要抄他的东西 */}
+      <Paper 
+        component="ul" 
+        sx={{...root}}
+      >
+        <li>
+          <Chip label="Production Countries" sx={{...chip}} color="primary" />
+        </li>
+        {movie.production_countries.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} sx={{...chip}} />
+          </li>
+        ))}
+      </Paper>
+
+
       <Fab
         color="secondary"
         variant="extended"

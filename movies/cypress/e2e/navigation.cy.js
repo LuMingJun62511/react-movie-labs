@@ -47,9 +47,29 @@ describe("Navigation", () => {
         });
       }
     );
-  });  describe("From the favourites page to a movie's details", () => {
-    // TODO
+  });  
+
+  //这个地方要测试从最爱的页面转到详情页面，要先加一个最爱，然后从主页转最爱，然后点最爱里的那个详情，然后判断成功的依据是
+  describe("From the favourites page to a movie's details", () => {
+    beforeEach(() => {
+        //cy.visit("/");
+        cy.get("button[aria-label='add to favorites']").eq(1).click();
+        cy.get("button[aria-label='add to favorites']").eq(3).click();
+        cy.get("button").contains("Favorites").click();
+      });
+    it("navigates to the movie details page and change browser URL", () => {
+        //最爱转详情
+        cy.get(".MuiCardActions-root").eq(0).contains("More Info").click();
+        cy.url().should("include", `/movies/${movies[1].id}`);
+
+      }),
+    it("navigates to the movie details page and change browser URL", () => {
+        cy.get(".MuiCardActions-root").eq(1).contains("More Info").click();
+        cy.url().should("include", `/movies/${movies[3].id}`);
+    })
   });
+
+
   describe("The forward/backward links", () => {
     beforeEach(() => {
       cy.get(".MuiCardActions-root").eq(0).contains("More Info").click();

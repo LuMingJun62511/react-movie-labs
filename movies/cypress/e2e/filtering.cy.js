@@ -1,4 +1,4 @@
-import { filterByGenre, filterByTitle } from "../support/e2e";
+import { filterByGenre, filterByTitle, filterByGenreAndTitle } from "../support/e2e";
 
 let movies; // List of Discover movies from TMDB
 
@@ -55,14 +55,34 @@ describe("Filtering", () => {
     });
   });
   describe("Combined genre and title", () => {
-    it("handles case when there are no matches", () => {
-      
+    it("show movies with the selected genre and title", () => {
       const searchString = "l";
       const selectedGenreId = 35;
       const selectedGenreText = "Comedy";
+      const matchingMovies = filterByGenreAndTitle(movies, searchString, selectedGenreId);
+      cy.get("#genre-select").click();
+      cy.get("li").contains(selectedGenreText).click();
+      cy.get("#filled-search").clear().type(searchString); // Enter l in text box
 
+      cy.get(".MuiCardHeader-content").should(
+        "have.length",
+        matchingMovies.length
+      );
+
+      cy.get(".MuiCardHeader-content").each(($card, index) => {
+        cy.wrap($card).find("p").contains(matchingMovies[index].title);
+      });
+    });
+    it("handles case when there are no matches", () => {
+      const searchString = "xyxxzyyzz";
+      const selectedGenreId = 35;
+      const selectedGenreText = "Comedy";
+      cy.get("#filled-search").clear().type(searchString); // Enter xyxxzyyzz in text box
+      cy.get("#genre-select").click();
+      cy.get("li").contains(selectedGenreText).click();
+      cy.get(".MuiCardHeader-content").should("have.length", 0);
     });
 
-    // 能同时通过流派和标题去找到异步电影
+    // 能同时通过流派和标题去找到电影
   });
 });

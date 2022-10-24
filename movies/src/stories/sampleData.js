@@ -1,4 +1,5 @@
-const sampleData = {
+
+export default {
     adult: false,
     backdrop_path: "/5Iw7zQTHVRBOYpA0V6z0yypOPZh.jpg",
     belongs_to_collection: {
@@ -27,7 +28,7 @@ const sampleData = {
       },
     ],
     homepage:
-    "https://www.starwars.com/films/star-wars-episode-viii-the-last-jedi",
+      "https://www.starwars.com/films/star-wars-episode-viii-the-last-jedi",
     id: 181808,
     imdb_id: "tt2527336",
     original_language: "en",
@@ -57,26 +58,25 @@ const sampleData = {
       },
     ],
     production_countries: [
-        {
-          iso_3166_1: "US",
-          name: "United States of America",
-        },
-      ],
-      release_date: "2017-12-13",
-      revenue: 1332459537,
-      runtime: 152,
-      spoken_languages: [
-        {
-          iso_639_1: "en",
-          name: "English",
-        },
-      ],
-      status: "Released",
-      tagline: "Darkness rises... and light to meet it",
-      title: "Star Wars: The Last Jedi",
-      video: false,
-      vote_average: 7,
-      vote_count: 9692,
-    };
+      {
+        iso_3166_1: "US",
+        name: "United States of America",
+      },
+    ],
+    release_date: "2017-12-13",
+    revenue: 1332459537,
+    runtime: 152,
+    spoken_languages: [
+      {
+        iso_639_1: "en",
+        name: "English",
+      },
+    ],
+    status: "Released",
+    tagline: "Darkness rises... and light to meet it",
+    title: "Star Wars: The Last Jedi",
+    video: false,
+    vote_average: 7,
+    vote_count: 9692,
+  };
   
-  export default sampleData;

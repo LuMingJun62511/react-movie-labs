@@ -7,6 +7,7 @@ import AddToPlaylist from '../components/cardIcons/addToPlaylist'
 
 //00
 //其实这一页任务很简单，就是类似主页，只不过换了一个取数据的途径
+//it seems I have done exercise3 in exercise1
 const UpcomingMoviesPage = (props) => {
 
   const { data, error, isLoading, isError } = useQuery('upcoming', getUpcomingMovies)

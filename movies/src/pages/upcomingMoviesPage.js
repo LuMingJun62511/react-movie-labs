@@ -3,7 +3,7 @@ import PageTemplate from '../components/templateMovieListPage'
 import { getUpcomingMovies } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import AddToPlaylist from '../components/cardIcons/addToPlaylist'
 
 //00
 //其实这一页任务很简单，就是类似主页，只不过换了一个取数据的途径
@@ -30,7 +30,7 @@ const UpcomingMoviesPage = (props) => {
       title="Upcoming Movies"
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
+        return <AddToPlaylist movie={movie} />
       }}
     />
   );

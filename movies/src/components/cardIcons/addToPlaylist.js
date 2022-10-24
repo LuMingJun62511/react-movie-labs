@@ -7,6 +7,8 @@ const AddToPlaylist = ({ movie }) => {
   const context = useContext(MoviesContext);
 
   const handleAddToPlaylist = (e) => {
+    e.preventDefault();
+    context.addToMustWatch(movie);
   };
 
   return (

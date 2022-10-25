@@ -54,7 +54,6 @@ const styles = {
     },
     snack: {
         width: "50%",
-        width: "50%",
         "& > * ": {
             width: "100%",
         },

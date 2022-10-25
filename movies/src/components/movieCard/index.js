@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 
 
 export default function MovieCard({ movie, action }) {
-  const { favorites, addToFavorites } = useContext(MoviesContext);
+  //const { favorites, addToFavorites } = useContext(MoviesContext);
 
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;

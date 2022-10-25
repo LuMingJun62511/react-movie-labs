@@ -4,6 +4,7 @@ image: node:latest
 stages:
   - install
   - build
+  - exercise
   - test
 
 variables:
@@ -39,7 +40,7 @@ bundle_app:
       - movies/build/
 
 exercise_job:
-  stage: test.pre
+  stage: exercise
   only:
     - main
   script:

@@ -38,6 +38,13 @@ bundle_app:
     paths:
       - movies/build/
 
+exercise_job:
+  stage: exercise
+  only:
+    - main
+  script:
+    - echo "exercise_job works"
+
 e2etest:
 # Node docker image with Cypress and Chrome pre-installed
   image: cypress/browsers:node12.14.1-chrome85-ff81
@@ -47,17 +54,17 @@ e2etest:
     - cd movies
     - npm run start:ci
 
-build_jobX:
-  stage: build
-  only:
-    - develop
-  script:
-    - echo "build job X on demoBranch works"
+# build_jobX:
+#   stage: build
+#   only:
+#     - develop
+#   script:
+#     - echo "build job X on demoBranch works"
 
-test_jobX:
-  stage: test
-  only:
-    - main
-    - branchX
-  script:
-    - echo "Run test job X"
+# test_jobX:
+#   stage: test
+#   only:
+#     - main
+#     - branchX
+#   script:
+#     - echo "Run test job X"

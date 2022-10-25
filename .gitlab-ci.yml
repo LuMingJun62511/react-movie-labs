@@ -39,7 +39,7 @@ bundle_app:
       - movies/build/
 
 exercise_job:
-  stage: exercise
+  stage: test.pre
   only:
     - main
   script:
